@@ -18,7 +18,7 @@ main {
   place-items: center;
 }
 
-#content {
+.content {
   height: 100%;
   width: 60%;
   background: rgb(0, 229, 255);
@@ -45,7 +45,7 @@ header {
   display: inline-block;
 }
 
-#city-input {
+.city-input {
   height: 40px;
   width: 300px;
   border: none;
@@ -54,11 +54,11 @@ header {
   padding-left: 15px;
   font-size: 20px;
 }
-#city-input:focus {
+.city-input:focus {
   outline: none;
 }
 
-#search-button {
+.search-button {
   border: none;
   padding: 10px;
   border-radius: 30px;
@@ -68,10 +68,10 @@ header {
   place-items: center;
   transition: background-color 0.15s;
 }
-#search-button:hover {
+.search-button:hover {
   background-color: #e9dcc6;
 }
-#search-button:active {
+.search-button:active {
   background-color: #e2d0b3;
 }
 

@@ -20,7 +20,7 @@ main{
   place-items: center;
 }
 
-#content{
+.content{
   height: 100%;
   width: 60%;
   background: rgb(0,229,255);
@@ -46,7 +46,7 @@ header{
   display: inline-block;
 }
 
-#city-input{
+.city-input{
   height: 40px;
   width: 300px;
   border: none;
@@ -60,7 +60,7 @@ header{
 }
 
 
-#search-button{
+.search-button{
   border: none;
   padding: 10px;
   border-radius: 30px;
