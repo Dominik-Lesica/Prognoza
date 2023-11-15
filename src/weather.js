@@ -1,4 +1,5 @@
-const apiKey = '39dd0b86-21dd-495d-8cde-6cdcb39e4115';
+import { apiKey } from "./cred.js";
+
 const cityInput = document.querySelector('.city-input');
 const searchButton = document.querySelector('.search-button');
 
