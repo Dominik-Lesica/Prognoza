@@ -7,23 +7,31 @@
 }
 
 body, html, main {
-  background-color: #1b4965;
   height: 1000px;
   width: 100%;
-  margin-top: 10px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 main {
-  display: grid;
-  place-items: center;
+  height: 100%;
+  width: 60%;
+}
+
+.greybox {
+  height: 500px;
+  width: 60%;
+  background-color: rgba(153, 153, 161, 0.2431372549);
+  margin-top: 10px;
 }
 
 .content {
   height: 100%;
   width: 60%;
-  background: rgb(0, 229, 255);
-  background: linear-gradient(0deg, rgb(41, 210, 228) 0%, rgb(41, 197, 244) 27%, rgb(9, 151, 202) 54%, rgb(98, 170, 248) 81%, rgb(101, 175, 255) 100%);
-  border-radius: 15px;
 }
 
 .search-icon {
@@ -33,6 +41,8 @@ main {
 header {
   width: 100%;
   height: 70px;
+  background-color: #15616d;
+  border-radius: 0 0 10px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,10 +57,9 @@ header {
 
 .city-input {
   height: 40px;
-  width: 300px;
+  width: 500px;
   border: none;
   border-radius: 17px;
-  background-color: #f0e7d8;
   padding-left: 15px;
   font-size: 20px;
 }
@@ -62,19 +71,19 @@ header {
   border: none;
   padding: 10px;
   border-radius: 30px;
-  background-color: #f0e7d8;
+  background-color: white;
   cursor: pointer;
   display: grid;
   place-items: center;
   transition: background-color 0.15s;
 }
 .search-button:hover {
-  background-color: #e9dcc6;
+  background-color: #f2f2f2;
 }
 .search-button:active {
-  background-color: #e2d0b3;
+  background-color: #e6e6e6;
 }
 
 .weather-icon {
-  height: 300px;
+  height: 400px;
 }/*# sourceMappingURL=weather.css.map */

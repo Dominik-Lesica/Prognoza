@@ -7,28 +7,34 @@
   <link rel="stylesheet" href="./dist/css/weather.css">
 </head>
 <body>
-  <main>
+    <header>
+      <div class="input-wrapper">
+        <input type="text" class="city-input">
+      </div>
+      <div class="button-wrapper">
+        <button class="search-button">
+          <img alt="Search" class="search-icon" src="./src/img/search.png">
+        </button>
+      </div>
+    </header>
+    <main>
+      <article class="greybox">
+        <img src="./src/img/animated/cloudy-day-1.svg" class="weather-icon">
+        <div class="temperature">temperature</div>
+      </article>
     <div class="content">
-      <header>
-        <div class="input-wrapper">
-          <input type="text" class="city-input">
-        </div>
-        <div class="button-wrapper">
-          <button class="search-button">
-            <img alt="Search" class="search-icon" src="./src/img/search.png">
-          </button>
-        </div>
-      </header>
+
       <article>
         <section>
           <div class="city">city</div>
-          <div class="temperature">temperature</div>
+          
           <div class="humidity">humidity</div>
           <div class="wind-speed">wind-speed</div>
+          
         </section>
       </article>
     </div>
   </main>
-  <script src="./src/weather.js"></script>
+  <script src="./src/weather.js" type="module"></script>
 </body>
 </html>
