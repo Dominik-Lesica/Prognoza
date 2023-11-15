@@ -9,7 +9,7 @@
 <body>
     <header>
       <div class="input-wrapper">
-        <input type="text" class="city-input">
+        <input type="text" class="city-input" placeholder="City name">
       </div>
       <div class="button-wrapper">
         <button class="search-button">
@@ -18,22 +18,47 @@
       </div>
     </header>
     <main>
-      <article class="greybox">
+      <article class="temperature-wrapper">
         <img src="./src/img/animated/cloudy-day-1.svg" class="weather-icon">
-        <div class="temperature">temperature</div>
+        <div class="temperature-info"><span class="temperature">0</span> °C</div>
       </article>
-    <div class="content">
-
-      <article>
-        <section>
-          <div class="city">city</div>
-          
-          <div class="humidity">humidity</div>
-          <div class="wind-speed">wind-speed</div>
-          
+      <aside class="right-section">
+        <section class="right-wrapper">
+          <div class="city-wrapper">
+            <span class="city"></span>,  
+            <span class="country"></span>
+          </div>
         </section>
-      </article>
-    </div>
+        <section class="right-wrapper">
+          <div class="content-wrapper"> 
+            <img src="./src/img/humidity.png" class="right-icon">
+            <div class="text-wrapper">
+              <span class="humidity">
+              0
+              </span> %
+            </div>
+          </div>
+        </section>
+        <section class="right-wrapper">
+          <div class="content-wrapper">
+            <img src="./src/img/wind.png" class="right-icon">
+            <div class="wind-speed-wrapper">
+              <div class="text-wrapper">
+                <span class="wind-speed">
+                  0
+                </span> km/h
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="right-wrapper">
+          <div class="feels-like-wrapper">
+            Feels like 
+            <span class="feels-like">
+              0
+            </span> °C</div>
+        </section>
+      </aside>
   </main>
   <script src="./src/weather.js" type="module"></script>
 </body>

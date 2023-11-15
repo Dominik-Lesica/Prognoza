@@ -1,39 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Lato:wght@700&family=Poppins:wght@300;400;700&family=Roboto:wght@400;500;700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body, html, main {
-  height: 1000px;
-  width: 100%;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-main {
-  height: 100%;
-  width: 60%;
-}
-
-.greybox {
-  height: 500px;
-  width: 60%;
-  background-color: rgba(153, 153, 161, 0.2431372549);
-  margin-top: 10px;
-}
-
-.content {
-  height: 100%;
-  width: 60%;
-}
-
 .search-icon {
   height: 30px;
 }
@@ -84,6 +49,80 @@ header {
   background-color: #e6e6e6;
 }
 
+.right-section {
+  width: 40%;
+  height: 500px;
+}
+
+.right-wrapper {
+  background-color: rgba(153, 153, 161, 0.2431372549);
+  height: 117.5px;
+  width: 100%;
+  margin-top: 10px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  padding-left: 15px;
+  border-radius: 0 10px 10px 0;
+}
+
+.right-icon {
+  height: 35px;
+}
+
+.content-wrapper {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+
+.text-wrapper {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body, html, main {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  height: 100%;
+  width: 60%;
+  display: flex;
+}
+
+.temperature-wrapper {
+  height: 500px;
+  width: 60%;
+  background-color: rgba(153, 153, 161, 0.2431372549);
+  margin-top: 10px;
+  display: grid;
+  justify-content: center;
+  grid-template-rows: 400px 1fr;
+  padding-bottom: 10px;
+}
+
 .weather-icon {
   height: 400px;
+}
+
+.temperature-info {
+  font-size: 70px;
+  width: -moz-fit-content;
+  width: fit-content;
 }/*# sourceMappingURL=weather.css.map */

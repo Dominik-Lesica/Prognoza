@@ -1,0 +1,49 @@
+.search-icon{
+  height: 30px;
+}
+
+header{
+  width: 100%;
+  height: 70px;
+  background-color: #15616d;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.button-wrapper, 
+.input-wrapper{
+  display: inline-block;
+}
+
+.city-input{
+  height: 40px;
+  width: 500px;
+  border: none;
+  border-radius: 17px;
+  padding-left: 15px;
+  font-size: 20px;
+  &:focus{
+    outline: none;
+  }
+}
+
+
+.search-button{
+  border: none;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: white;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background-color 0.15s;
+  &:hover{
+    background-color: darken(White, 5%);
+  }
+  &:active{
+    background-color: darken(White, 10%);
+  }
+}

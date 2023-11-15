@@ -1,0 +1,29 @@
+.right-section{
+  width: 40%;
+  height: 500px;
+}
+
+.right-wrapper{
+  background-color: #9999a13e;
+  height: calc(470px/4);
+  width: 100%;
+  margin-top: 10px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  padding-left: 15px;
+  border-radius: 0 10px 10px 0;
+}
+
+.right-icon{
+  height: 35px;
+}
+.content-wrapper{
+  display: flex;
+  column-gap: 10px;
+}
+
+.text-wrapper{
+  width: fit-content;
+}
