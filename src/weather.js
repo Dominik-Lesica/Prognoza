@@ -2,7 +2,7 @@ import { apiKey } from "./cred.js";
 
 const cityInput = document.querySelector('.city-input');
 const searchButton = document.querySelector('.search-button');
-
+const popup = document.querySelector('.popup');
 
 async function checkWeather(lat, lon) {
   const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=${apiKey}`;
@@ -20,20 +20,22 @@ async function locateCity(city) {
     const {lat, lon, name, country} = geoData[0];
     return {lat:lat, lon:lon, cityName:name, country:country};
   } catch {
-    alert('Not a real city');
+    console.log(popup);
+    popup.classList.remove('not-displayed');
   }
 }
 
-function updateDom(WeatherData, city, country) {
+function updateDom(WeatherData, city, country, imgUrl) {
   document.querySelector('.city').innerHTML = city;
   document.querySelector('.country').innerHTML = country;
   document.querySelector('.temperature').innerHTML = Math.round(WeatherData.main.temp);
   document.querySelector('.humidity').innerHTML = WeatherData.main.humidity;
   document.querySelector('.wind-speed').innerHTML = WeatherData.wind.speed;
   document.querySelector('.feels-like').innerHTML = Math.round(WeatherData.main.feels_like);
+  document.querySelector('.weather-icon-wrapper').innerHTML = `<img src="${imgUrl}" class="weather-icon">`;
 }
 
-function getWeatherIcon(weather) {
+function getWeatherIcon(weather, description) {
   let imgUrl = '';
   switch (weather) {
     case 'Thunderstorm':
@@ -52,19 +54,27 @@ function getWeatherIcon(weather) {
       imgUrl = './src/img/animated/day.svg';
       break;
     case 'Clouds':
-      imgUrl = './src/img/animated/cloudy.svg';
+      if(description==='few clouds' 
+      || description === 'scattered clouds') {
+        imgUrl = './src/img/animated/cloudy-day-3.svg';
+      } else if (description==='broken clouds' 
+      || description === 'overcast clouds'){
+        imgUrl = './src/img/animated/cloudy.svg';
+      };
       break;
     default:
-      imgUrl = './src/img/search.png';
+      imgUrl = './src/img/mist.svg';
       break;
   }
+  console.log(description);
   return imgUrl;
 }
 
 async function renderWeatherInfo(city) {
   const {lat, lon, cityName, country} = await locateCity(city);
   const weatherData = await checkWeather(lat, lon);
-  updateDom(weatherData, cityName, country);
+  const imgUrl = getWeatherIcon(weatherData.weather[0].main, weatherData.weather[0].description);
+  updateDom(weatherData, cityName, country, imgUrl);
   localStorage.setItem('city', cityName);
 }
 
@@ -79,6 +89,3 @@ cityInput.addEventListener('keydown', (e) => {
     renderWeatherInfo(cityInput.value);
   };
 });
-
-
-

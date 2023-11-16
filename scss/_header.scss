@@ -18,6 +18,10 @@ header{
   display: inline-block;
 }
 
+.input-wrapper{
+  position: relative;
+}
+
 .city-input{
   height: 40px;
   width: 500px;
@@ -46,4 +50,49 @@ header{
   &:active{
     background-color: darken(White, 10%);
   }
+}
+
+.popup{
+  height: 60px;
+  width: 200px;
+  position: absolute;
+  bottom: -67px;
+  display: flex;
+  flex-direction: column;
+  .square{
+    height: 40px;
+    width: 100%;
+    background-color: #FAF9F6;
+    border-radius: 7px;
+    border: 2px solid rgb(192, 192, 192);
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    color: red;
+  }
+
+  .triangle{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #FAF9F6 transparent;
+    margin-left: 20px;
+    position: relative;
+  }
+  .triangle-border{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 16px 16px 16px;
+    border-color: transparent transparent rgb(192, 192, 192) transparent;
+    z-index: -1;
+    position: absolute;
+    left: -16px;
+    top: -2px;
+  }
+}
+
+.not-displayed{
+  display: none;
 }

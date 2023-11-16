@@ -10,6 +10,14 @@
     <header>
       <div class="input-wrapper">
         <input type="text" class="city-input" placeholder="City name">
+        <div class="popup not-displayed">
+          <div class="triangle">
+            <div class="triangle-border"></div>
+          </div>
+          <div class="square">
+            Not a real city
+          </div>
+        </div>
       </div>
       <div class="button-wrapper">
         <button class="search-button">
@@ -19,7 +27,9 @@
     </header>
     <main>
       <article class="temperature-wrapper">
-        <img src="./src/img/animated/cloudy-day-1.svg" class="weather-icon">
+        <div class="weather-icon-wrapper"> 
+          <img src="./src/img/animated/cloudy-day-1.svg" class="weather-icon">
+        </div>
         <div class="temperature-info"><span class="temperature">0</span> °C</div>
       </article>
       <aside class="right-section">
