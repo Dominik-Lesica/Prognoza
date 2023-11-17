@@ -22,11 +22,12 @@ header {
 
 .input-wrapper {
   position: relative;
+  width: 30%;
 }
 
 .city-input {
   height: 40px;
-  width: 500px;
+  width: 100%;
   border: none;
   border-radius: 17px;
   padding-left: 15px;
@@ -97,6 +98,27 @@ header {
   display: none;
 }
 
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.shake {
+  animation: shake 0.2s linear;
+}
+
 .right-section {
   width: 40%;
   height: 500px;
@@ -152,6 +174,7 @@ main {
   height: 100%;
   width: 60%;
   display: flex;
+  min-width: 470px;
 }
 
 .temperature-wrapper {
@@ -163,6 +186,8 @@ main {
   justify-content: center;
   grid-template-rows: 400px 1fr;
   padding-bottom: 10px;
+  position: relative;
+  z-index: -1;
 }
 
 .weather-icon {
@@ -173,4 +198,7 @@ main {
   font-size: 70px;
   width: -moz-fit-content;
   width: fit-content;
+  position: absolute;
+  bottom: 0;
+  left: 10px;
 }/*# sourceMappingURL=weather.css.map */

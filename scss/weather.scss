@@ -27,6 +27,7 @@ main{
   height: 100%;
   width: 60%;
   display: flex;
+  min-width: 470px;
 }
 
 .temperature-wrapper{
@@ -38,6 +39,8 @@ main{
   justify-content: center;
   grid-template-rows: 400px 1fr;
   padding-bottom: 10px;
+  position: relative;
+  z-index: -1;
 }
 
 .weather-icon{
@@ -47,14 +50,7 @@ main{
 .temperature-info{
   font-size: 70px;
   width: fit-content;
+  position: absolute;
+  bottom: 0;
+  left: 10px;
 }
-
-
-
-
-
-
-
-
-
-

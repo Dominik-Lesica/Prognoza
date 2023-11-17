@@ -4,6 +4,8 @@ const cityInput = document.querySelector('.city-input');
 const searchButton = document.querySelector('.search-button');
 const popup = document.querySelector('.popup');
 
+let timeoutId;
+
 async function checkWeather(lat, lon) {
   const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=${apiKey}`;
   const response = await fetch(weatherApiUrl);
@@ -13,16 +15,11 @@ async function checkWeather(lat, lon) {
 }
 
 async function locateCity(city) {
-  try {
-    const geoApiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
-    const response = await fetch(geoApiUrl);
-    const geoData = await response.json();
-    const {lat, lon, name, country} = geoData[0];
-    return {lat:lat, lon:lon, cityName:name, country:country};
-  } catch {
-    console.log(popup);
-    popup.classList.remove('not-displayed');
-  }
+  const geoApiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
+  const response = await fetch(geoApiUrl);
+  const geoData = await response.json();
+  const {lat, lon, name, country} = geoData[0];
+  return {lat:lat, lon:lon, cityName:name, country:country};
 }
 
 function updateDom(WeatherData, city, country, imgUrl) {
@@ -58,7 +55,7 @@ function getWeatherIcon(weather, description) {
       || description === 'scattered clouds') {
         imgUrl = './src/img/animated/cloudy-day-3.svg';
       } else if (description==='broken clouds' 
-      || description === 'overcast clouds'){
+      || description === 'overcast clouds') {
         imgUrl = './src/img/animated/cloudy.svg';
       };
       break;
@@ -71,11 +68,25 @@ function getWeatherIcon(weather, description) {
 }
 
 async function renderWeatherInfo(city) {
-  const {lat, lon, cityName, country} = await locateCity(city);
-  const weatherData = await checkWeather(lat, lon);
-  const imgUrl = getWeatherIcon(weatherData.weather[0].main, weatherData.weather[0].description);
-  updateDom(weatherData, cityName, country, imgUrl);
-  localStorage.setItem('city', cityName);
+  try {
+    const {lat, lon, cityName, country} = await locateCity(city);
+    const weatherData = await checkWeather(lat, lon);
+    const imgUrl = getWeatherIcon(weatherData.weather[0].main, weatherData.weather[0].description);
+    updateDom(weatherData, cityName, country, imgUrl);
+    localStorage.setItem('city', cityName);
+  } catch {
+    popup.classList.remove('not-displayed');
+    popup.classList.add('shake');
+    if(timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    timeoutId = setTimeout(() => {
+      popup.classList.add('not-displayed');
+      popup.classList.remove('shake');
+      }, 2000);
+  }
+  
+  
 }
 
 renderWeatherInfo(localStorage.getItem('city') || 'Zagreb');
