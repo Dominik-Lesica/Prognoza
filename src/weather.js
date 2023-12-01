@@ -10,7 +10,6 @@ async function checkWeather(lat, lon) {
   const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=${apiKey}`;
   const response = await fetch(weatherApiUrl);
   const WeatherData = await response.json();
-  console.log(WeatherData);
   return WeatherData;
 }
 
@@ -63,7 +62,6 @@ function getWeatherIcon(weather, description) {
       imgUrl = './src/img/mist.svg';
       break;
   }
-  console.log(description);
   return imgUrl;
 }
 
@@ -75,27 +73,33 @@ async function renderWeatherInfo(city) {
     updateDom(weatherData, cityName, country, imgUrl);
     localStorage.setItem('city', cityName);
   } catch {
-    popup.classList.remove('not-displayed');
-    popup.classList.add('shake');
-    if(timeoutId) {
-      clearTimeout(timeoutId);
-    }
-    timeoutId = setTimeout(() => {
-      popup.classList.add('not-displayed');
-      popup.classList.remove('shake');
-      }, 2000);
+    displayPopup();
   }
   
   
 }
 
+function displayPopup() {
+  popup.classList.remove('not-displayed');
+  popup.classList.add('shake');
+  if(timeoutId) {
+    clearTimeout(timeoutId);
+  }
+  timeoutId = setTimeout(() => {
+    popup.classList.add('not-displayed');
+    popup.classList.remove('shake');
+    }, 2000);
+}
+
 renderWeatherInfo(localStorage.getItem('city') || 'Zagreb');
 
 searchButton.addEventListener('click', () => {
+  if (!cityInput.value) return;
   renderWeatherInfo(cityInput.value);
 });
 
 cityInput.addEventListener('keydown', (e) => {
+  if (!cityInput.value) return;
   if(e.key === 'Enter') {
     renderWeatherInfo(cityInput.value);
   };
